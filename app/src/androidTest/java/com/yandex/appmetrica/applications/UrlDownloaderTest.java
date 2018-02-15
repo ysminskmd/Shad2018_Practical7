@@ -44,18 +44,6 @@ public class UrlDownloaderTest {
 
         Pair<Integer, String> result = mUrlDownloader.downloadUrl(mServer.url("/some/path").url());
 
-        URL.setURLStreamHandlerFactory(new URLStreamHandlerFactory() {
-            @Override
-            public URLStreamHandler createURLStreamHandler(String protocol) {
-                return new URLStreamHandler() {
-                    @Override
-                    protected URLConnection openConnection(URL u) throws IOException {
-                        throw new UnsupportedOperationException("implement me");
-                    }
-                };
-            }
-        });
-
         assertThat(result.first, is(equalTo(code)));
         assertThat(result.second, is(equalTo(body)));
 

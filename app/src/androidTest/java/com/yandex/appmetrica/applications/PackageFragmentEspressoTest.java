@@ -5,7 +5,6 @@ import android.support.test.espresso.contrib.RecyclerViewActions;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 
-import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -35,7 +34,6 @@ public class PackageFragmentEspressoTest {
         onView(allOf(withId(R.id.content), withText(mPackageName))).check(matches(isDisplayed()));
     }
 
-    @Ignore
     @Test
     public void clearButtonClearsPackages() {
         onView(withId(R.id.load)).perform(click());

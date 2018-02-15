@@ -32,14 +32,14 @@ public class PackageProviderTest {
         MockitoAnnotations.initMocks(this);
 
         mPackageProvider = new PackageProvider(mPackageManager, mPackageNameExtractor, mPackageFilter);
+
+        when(mPackageManager.getInstalledPackages(0)).thenReturn(mPackages);
+        when(mPackageNameExtractor.extractPackageNames(mPackages)).thenReturn(mPackageNames);
+        when(mPackageFilter.filterPackages(mPackageNames)).thenReturn(mFilteredPackages);
     }
 
     @Test
     public void getInstalledPackageNames() {
-        when(mPackageManager.getInstalledPackages(0)).thenReturn(mPackages);
-        when(mPackageNameExtractor.extractPackageNames(mPackages)).thenReturn(mPackageNames);
-        when(mPackageFilter.filterPackages(mPackageNames)).thenReturn(mFilteredPackages);
-
         assertThat(mPackageProvider.getInstalledPackageNames(), is(equalTo(mFilteredPackages)));
     }
 }

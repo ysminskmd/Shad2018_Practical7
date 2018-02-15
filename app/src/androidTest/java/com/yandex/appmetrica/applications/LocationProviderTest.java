@@ -4,7 +4,6 @@ import android.content.Context;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Build;
-import android.os.Looper;
 import android.os.SystemClock;
 import android.support.test.InstrumentationRegistry;
 import android.support.test.runner.AndroidJUnit4;
@@ -23,10 +22,6 @@ import static org.junit.Assert.assertThat;
 public class LocationProviderTest {
 
     private static final String PROVIDER = LocationManager.NETWORK_PROVIDER;
-
-    static {
-        Looper.prepare();
-    }
 
     private final Context mContext = InstrumentationRegistry.getTargetContext();
     private final LocationManager mLocationManager =

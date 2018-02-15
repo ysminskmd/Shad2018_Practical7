@@ -15,7 +15,6 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -67,7 +66,6 @@ public class PackageFragmentUiAutomatorTest {
         assertThat(chrome.exists(), is(true));
     }
 
-    @Ignore
     @Test
     public void clearButtonClearsPackages() throws Exception {
         mDevice.findObject(new UiSelector().text(LOAD_BUTTON_TEXT).className(Button.class.getName())).click();
